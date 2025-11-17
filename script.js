@@ -16,7 +16,7 @@ function toggleCart() {
 }
 
 function addToCart(index) {
-  let dish = DISHES[index];
+  let dish = MAINDISHES[index];
   let existingItem = cart.find((item) => item.name === dish.name);
 
   if (existingItem) {

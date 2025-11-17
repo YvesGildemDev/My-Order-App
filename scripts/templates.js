@@ -4,8 +4,8 @@ function renderMenu() {
     <img src="">
     <h3>Hauptgerichte</h3>`;
 
-  for (let index = 0; index < DISHES.length; index++) {
-    let dish = DISHES[index];
+  for (let index = 0; index < MAINDISHES.length; index++) {
+    let dish = MAINDISHES[index];
 
     if (dish.price > 0) {
       menuList.innerHTML += `
