@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/standart.css" />
+    <link rel="stylesheet" href="styles/menu.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
+
+    <title>BestellApp</title>
+
+  </head>
+
+  <body onload="renderMenu()">
+
+    <header>
+
+      <img src="#">
+      <button onclick="toggleCart()" class="hamburger_button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+    </header>
+
+    <main class="main">
+
+      <div class="menu">
+
+        <section class="menu_title">
+
+          <img class="menu_title_background_img" src="#">
+          <img class="menu_title_logo_img" src="#">
+          <h1>Paradise Noodles</h1>
+          <p class="text_color">Bewertung (4.2 von 5 Sternen)</p>
+
+        </section>
+        
+        <div class="menu_group_selection">
+
+          <img src="">
+          <p>Hauptgerichte</p>
+          <p>Beilage</p>
+
+        </div>
+
+        <section id="menu-list" class="menu_list"></section>
+      </div>
+      <!---------- cardboard area ---------->
+      <aside id="cart" class="cart hidden">
+
+        <h2>Warenkorb</h2>
+        <div id="cartList" class="cart_list"></div>
+        <div class="cart-summary">
+          <p>Zwischensumme: <span id="subtotal">0.00€</span></p>
+          <p>Lieferkosten: <span id="shipping">5.00€</span></p>
+          <p>
+            <strong>Gesamt: <span id="total">5.00€</span></strong>
+          </p>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer></footer>
+
+    
+  </body>
+
+  <!-------------------- Scripts -------------------->
+  <script src="./scripts/objects.js"></script>
+  <script src="./scripts/templates.js"></script>
+  <script src="./script.js"></script>
+
+</html>
