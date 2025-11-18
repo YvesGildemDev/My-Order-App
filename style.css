@@ -39,18 +39,15 @@ header {
   padding: 16px 16px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1920px;
-  padding-right: 24px;
-}
-
 header img {
   width: 250px;
   height: 60px;
+}
+
+header section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .hamburger_button {
@@ -86,9 +83,9 @@ header span {
 
 main {
   display: flex;
-  justify-content: center;
   width: 100%;
   min-height: calc(100vh - 152px);
+  overflow-x: hidden;
 }
 
 footer {

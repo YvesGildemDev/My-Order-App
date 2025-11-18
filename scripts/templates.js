@@ -3,7 +3,7 @@ function initMenuStart() {
 }
 
 function loadMenuGroup(group) {
-  const menuList = document.getElementById("menu-list");
+  let menuList = document.getElementById("menu-list");
   menuList.innerHTML = `<img src=""><h3>Hauptgerichte</h3>`;
 
   switch (group) {
@@ -20,7 +20,7 @@ function loadMenuGroup(group) {
 
   document
     .querySelectorAll(".menu_tab")
-    .forEach((t) => t.classList.remove("active"));
+    .forEach((meal) => meal.classList.remove("active"));
   document.getElementById(`menu-tab-${group}`).classList.add("active");
 
   renderMenuList();
@@ -28,9 +28,9 @@ function loadMenuGroup(group) {
 }
 
 function renderMenuList() {
-  const menuList = document.getElementById("menu-list");
+  let menuList = document.getElementById("menu-list");
   let html = "";
-  menuGroup.forEach((dish, i) => {
+  menuGroup.forEach((dish, index) => {
     html += `
       <div class="menu_item">
         <div class="menu_item_text">
@@ -38,19 +38,19 @@ function renderMenuList() {
           <p>${dish.description}</p>
           <span>${dish.price.toFixed(2)}€</span>
         </div>
-        <div class="menu_item_button" data-index="${i}">+</div>
+        <div class="menu_item_button" data-index="${index}">+</div>
       </div>`;
   });
   menuList.innerHTML = html;
 }
 
 function renderCart() {
-  const list = document.getElementById("cart-list");
+  let list = document.getElementById("cart-list");
   let html = "";
   let subtotal = 0;
 
-  cart.forEach((item, i) => {
-    const sum = item.quantity * item.price;
+  cart.forEach((item, index) => {
+    let sum = item.quantity * item.price;
     subtotal += sum;
     html += `
       <div class="cart-item">
@@ -59,14 +59,16 @@ function renderCart() {
           <span>${sum.toFixed(2)}€</span>
         </div>
         <div class="trash_nh_price">
-          <button onclick="changeQuantity(${i}, -1)">-</button>
+          <button onclick="changeQuantity(${index}, -1)">-</button>
           <span>${item.quantity}</span>
-          <button onclick="changeQuantity(${i}, 1)">+</button>
+          <button onclick="changeQuantity(${index}, 1)">+</button>
         </div>
       </div>`;
   });
+
   list.innerHTML = html;
-  const shipping = cart.length > 0 ? 5 : 0;
+  let shipping = cart.length > 0 ? 5 : 0;
+
   document.getElementById("subtotal").innerText = subtotal.toFixed(2) + "€";
   document.getElementById("shipping").innerText = shipping.toFixed(2) + "€";
   document.getElementById("total").innerText =

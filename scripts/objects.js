@@ -2,32 +2,38 @@ const STARTERS = [
   {
     name: "Frischer Gartensalat",
     price: 4.9,
-    description: "Knackiger Mix aus Blattsalaten, Tomaten, Gurken und Karotten, serviert mit leichter Zitronen-Vinaigrette. Erfrischend und perfekt als leichter Start ins Menü.",
+    description:
+      "Knackiger Mix aus Blattsalaten, Tomaten, Gurken und Karotten, serviert mit leichter Zitronen-Vinaigrette. Erfrischend und perfekt als leichter Start ins Menü.",
   },
   {
     name: "Gurkensalat in Sesam-Dressing",
     price: 3.9,
-    description: "Dünn geschnittene Gurkenscheiben in einem milden Sesam-Reisessig-Dressing mit geröstetem Sesam. Kühl, aromatisch und besonders beliebt zu asiatischen Gerichten.",
+    description:
+      "Dünn geschnittene Gurkenscheiben in einem milden Sesam-Reisessig-Dressing mit geröstetem Sesam. Kühl, aromatisch und besonders beliebt zu asiatischen Gerichten.",
   },
   {
     name: "Wakame-Algensalat",
     price: 5.5,
-    description: "Marinierter japanischer Algensalat mit leicht süß-saurer Note, Sesam und feiner Chiliwürzung. Perfekt als traditionelle Vorspeise oder Beilage.",
+    description:
+      "Marinierter japanischer Algensalat mit leicht süß-saurer Note, Sesam und feiner Chiliwürzung. Perfekt als traditionelle Vorspeise oder Beilage.",
   },
   {
     name: "Mini-Frühlingsrollen (6 Stück)",
     price: 4.5,
-    description: "Knusprige Mini-Frühlingsrollen mit Gemüsefüllung, serviert mit süß-saurer Sauce. Perfekt zum Teilen oder als Snack für zwischendurch.",
+    description:
+      "Knusprige Mini-Frühlingsrollen mit Gemüsefüllung, serviert mit süß-saurer Sauce. Perfekt zum Teilen oder als Snack für zwischendurch.",
   },
   {
     name: "Miso-Suppe",
     price: 3.5,
-    description: "Klassische japanische Suppe mit Miso-Paste, Tofu, Wakame und Frühlingszwiebeln. Warm, herzhaft und ideal als leichter Einstieg.",
+    description:
+      "Klassische japanische Suppe mit Miso-Paste, Tofu, Wakame und Frühlingszwiebeln. Warm, herzhaft und ideal als leichter Einstieg.",
   },
   {
     name: "Saté-Erdnusssauce",
     price: 2.9,
-    description: "Cremige, hausgemachte Erdnusssauce mit feiner Kokosnote. Perfekt als Dip zu Vorspeisen oder als Zusatz zu Hauptgerichten.",
+    description:
+      "Cremige, hausgemachte Erdnusssauce mit feiner Kokosnote. Perfekt als Dip zu Vorspeisen oder als Zusatz zu Hauptgerichten.",
   },
 ];
 

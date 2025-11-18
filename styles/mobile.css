@@ -1,5 +1,5 @@
 @media (max-width: 760px) {
-  header {
+  header section {
     justify-content: center;
   }
 
@@ -11,24 +11,40 @@
     display: flex;
   }
 
-  .menu.shifted {
-    display: none;
+  main {
+    flex-direction: column;
+    justify-content: flex-start;
   }
-  .cart {
+
+  .menu.shifted {
+    margin-right: 0 !important;
     width: 100% !important;
-    min-height: 100vh !important;
+  }
+
+  .cart {
+    position: fixed !important;
+    bottom: 0px;
+    left: 0px;
+    width: 100% !important;
+    height: 100vh !important;
+    background: white;
+    z-index: 1000;
+
+    display: flex !important;
+    flex-direction: column;
+
     transform: translateX(0%) !important;
-    transform: translateY(200%) !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.3s ease;
   }
 
   .cart.active {
-    opacity: 1;
     transform: translateY(0%) !important;
-
   }
 
   .cart.hidden {
-    opacity: 0;
+    transform: translateX(0%) !important;
+    transform: translateY(100%);
   }
 }
 

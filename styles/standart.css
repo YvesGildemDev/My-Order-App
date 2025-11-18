@@ -26,3 +26,8 @@
   border-radius: 24px;
   cursor: pointer;
 }
+
+.content_cut {
+  width: 100%;
+  max-width: 1920px;
+}
