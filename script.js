@@ -1,60 +1,54 @@
 function updateTabIndicator() {
-  let activeTab = document.querySelector(".menu_tab.active");
-  let indicator = document.getElementById(`tab-indicator`);
-
-  if (!activeTab || !indicator) return;
-
-  indicator.style.width = activeTab.offsetWidth + "px";
-  indicator.style.left = activeTab.offsetLeft + "px";
+const activeTab = document.querySelector(".menu_tab.active");
+const indicator = document.getElementById("tab-indicator");
+if (!activeTab || !indicator) return;
+indicator.style.width = activeTab.offsetWidth + "px";
+indicator.style.left = activeTab.offsetLeft + "px";
 }
+
+
+window.addEventListener("load", updateTabIndicator);
+window.addEventListener("resize", updateTabIndicator);
 
 function toggleCart() {
-  let cart = document.getElementById("cart");
-  let menu = document.querySelector(".menu");
+const cartEl = document.getElementById("cart");
+const body = document.body;
+const open = body.classList.contains("cart-open");
 
-  let isClosed = cart.classList.contains("hidden");
 
-  if (isClosed) {
-    cart.style.display = `flex`;      
-    menu.classList.add("shifted");
-    cart.classList.add("active");
-    setTimeout(() => 
-      cart.classList.remove("hidden")
-    , 10)    
-
-  } else {
-    cart.classList.add("hidden");
-    menu.classList.remove("shifted");
-
-    setTimeout(() => {
-      cart.classList.remove("active");
-  }, 10)
-  }
+if (!open) {
+body.classList.add("cart-open");
+cartEl.classList.add("active");
+cartEl.classList.remove("hidden");
+} else {
+cartEl.classList.remove("active");
+const onEnd = () => {
+body.classList.remove("cart-open");
+cartEl.classList.add("hidden");
+cartEl.removeEventListener("transitionend", onEnd);
+};
+cartEl.addEventListener("transitionend", onEnd);
+}
 }
 
-function addToCart(index) {
-  let dish = menuGroup[index];
+document.addEventListener("click", e => {
+if (e.target.classList.contains("menu_item_button")) addToCart(parseInt(e.target.dataset.index));
+});
 
-  let existingItem = cart.find((item) => item.name === dish.name);
 
-  if (existingItem) {
-    existingItem.quantity++;
-  } else {
-    cart.push({ ...dish, quantity: 1 });
-  }
-
-  renderCart();
+function addToCart(i) {
+const dish = menuGroup[i];
+if (!dish) return;
+const ex = cart.find(x => x.name === dish.name);
+if (ex) ex.quantity++;
+else cart.push({ ...dish, quantity: 1 });
+renderCart();
 }
 
-function changeQuantity(index, delta) {
-  let item = cart[index];
-  item.quantity += delta;
-
-  if (item.quantity <= 0) {
-    cart.splice(index, 1);
-  }
-
-  renderCart();
+function changeQuantity(i, d) {
+cart[i].quantity += d;
+if (cart[i].quantity <= 0) cart.splice(i, 1);
+renderCart();
 }
 
 function openCartDialog() {
