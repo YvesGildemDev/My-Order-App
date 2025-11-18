@@ -1,12 +1,12 @@
 .menu {
-  width: 100%;
+  width: calc(100% + 350px);
   max-width: 1920px;
-  margin-right: -350px;
+  margin-right: 0px;
 }
 
 .menu.shifted {
-  margin-right: 0px;
-  transition: margin-right 0.3s ease;
+  width: 100%;
+  transition: width 10ms ease;
 }
 
 .menu_title {

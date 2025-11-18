@@ -12,23 +12,31 @@ function toggleCart() {
   let cart = document.getElementById("cart");
   let menu = document.querySelector(".menu");
 
-  let cardClosed = cart.classList.contains("hidden");
+  let isClosed = cart.classList.contains("hidden");
 
-  if (cardClosed) {
-    cart.classList.remove("hidden");
-    cart.classList.add("active");
+  if (isClosed) {
+    cart.style.display = `flex`;      
     menu.classList.add("shifted");
+    cart.classList.add("active");
+    setTimeout(() => 
+      cart.classList.remove("hidden")
+    , 10)    
+
   } else {
     cart.classList.add("hidden");
-    cart.classList.remove("active");
     menu.classList.remove("shifted");
+
+    setTimeout(() => {
+      cart.classList.remove("active");
+      cart.style.display = `none`
+  }, 10)
   }
 }
 
 function addToCart(index) {
   let dish = menuGroup[index];
 
-  let existingItem = cart.find(item => item.name === dish.name);
+  let existingItem = cart.find((item) => item.name === dish.name);
 
   if (existingItem) {
     existingItem.quantity++;
@@ -49,3 +57,29 @@ function changeQuantity(index, delta) {
 
   renderCart();
 }
+
+function openCartDialog() {
+  let cartDialog = document.getElementById(`cart-dialog`);
+
+  renderCartDialog();
+
+  cartDialog.showModal();
+  cartDialog.classList.add("active");
+  cartDialog.style.display = `flex`;
+}
+
+function closeCartDialog() {
+  let cartDialog = document.getElementById(`cart-dialog`);
+
+  cartDialog.close();
+  cartDialog.style.display = `none`;
+
+  renderCartDialog();
+}
+
+let cartDialog = document.getElementById(`cart-dialog`);
+document.addEventListener("keydown", function (e) {
+  if (cartDialog.classList.contains("active")) {
+    if (e.key === "Escape") closeCartDialog();
+  }
+});

@@ -36,6 +36,7 @@ header {
 
   color: white;
   background-color: #ff8000;
+  z-index: 2;
 }
 
 header img {

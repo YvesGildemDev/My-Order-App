@@ -86,3 +86,20 @@ function renderCart() {
   subtotalRef.textContent = `${subtotal.toFixed(2)}€`;
   totalRef.textContent = `${(subtotal + shipping).toFixed(2)}€`;
 }
+
+function renderCartDialog() {
+  let cartDialog = document.getElementById(`cart-dialog`);
+  cartDialog.innerHTML = `
+    <button onclick="closeCartDialog()" class="close_cart_dialog_button button_style">x</button
+    <section class="cart_dialog_header">
+      <h2>Test Bestellung abgeschickt</h2>
+    </section>
+    <section class="cart_dialog_main">
+      <h4>Danke das sie bei uns bestellt haben, wir werden ihre Bestellung zeitnah bearbeiten!
+        Bei Rückfragen, rufen sie uns einfach an, unter Tel: 0123 45 67 89.
+      </h4>
+    </section>
+    <section class="cart_dialog_footer">
+      <button class="button_style_two">Bewerten sie uns!</button>
+      </section>`
+}
