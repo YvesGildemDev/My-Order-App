@@ -12,7 +12,7 @@ function renderMenu() {
         <div class="menu_item">
           <div class="menu_item_text">
             <h4>${dish.name}</h4>
-            <p>${dish.desc}</p>
+            <p>${dish.description}</p>
             <span>${dish.price.toFixed(2)}€</span>
           </div>
           <div class="menu_item_button" onclick="addToCart(${index})">+</div>
@@ -24,7 +24,7 @@ function renderMenu() {
 }
 
 function renderCart() {
-  let cartList = document.getElementById("cartList");
+  let cartList = document.getElementById("cart-list");
   let subtotalRef = document.getElementById("subtotal");
   let totalRef = document.getElementById("total");
   let shipping = 5.0;
@@ -50,9 +50,9 @@ function renderCart() {
               </p>
             </div>
 
-            <div>
+            <div class="trash_nh_price">
               <span>${totalItem.toFixed(2)}€</span>
-              <button onclick="changeQuantity(${index}, -item.quantity)">🗑️</button>
+              <button onclick="changeQuantity(${index}, ${-item.quantity})">🗑️</button>
             </div>
 
         </div>

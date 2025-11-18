@@ -1,10 +1,11 @@
 .menu {
   width: 100%;
   max-width: 1920px;
+  margin-right: -350px;
 }
 
 .menu.shifted {
-  margin-right: 350px;
+  margin-right: 0px;
   transition: margin-right 0.3s ease;
 }
 

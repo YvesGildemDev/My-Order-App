@@ -44,9 +44,9 @@
         <div class="menu_group_selection">
 
           <img src="">
-          <p>Vorspeisen</p>
-          <p>Hauptgerichte</p>
-          <p>Desserts</p>
+          <span id="menu-tab-starter" onclick="loadMenuGroup('starter')" class="menu_tab active">Vorspeisen</span>
+          <span id="menu-tab-maindishes" onclick="loadMenuGroup('maindishes')" class="menu_tab">Hauptgerichte</span>
+          <span id="menu-tab-desserts" onclick="loadMenuGroup('desserts')" class="menu_tab">Desserts</span>
 
         </div>
 
@@ -56,7 +56,7 @@
       <aside id="cart" class="cart hidden">
 
         <h2>Warenkorb</h2>
-        <div id="cartList" class="cart_list"></div>
+        <div id="cart-list" class="cart_list"></div>
         <div class="cart-summary">
           <p>Zwischensumme: <span id="subtotal">0.00€</span></p>
           <p>Lieferkosten: <span id="shipping">5.00€</span></p>
@@ -66,6 +66,7 @@
         </div>
 
       </aside>
+      
     </main>
 
     <footer></footer>
