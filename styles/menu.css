@@ -1,7 +1,6 @@
 .menu {
-  width: calc(100% + 350px);
+  width: 100%;
   max-width: 1920px;
-  margin-right: 0px;
 }
 
 .menu.shifted {
@@ -43,7 +42,6 @@
   display: flex;
   position: relative;
   width: 100%;
-  height: 42px;
   background-color: bisque;
 }
 
@@ -71,11 +69,11 @@
 .menu_group_selection img {
   width: 42px;
   height: 42px;
-  margin: 0px 16px;
+  margin: 6px 16px;
 }
 
 .menu_list {
-  width: 100%;
+  width: 100vw;
   padding: 16px;
 }
 

@@ -64,7 +64,7 @@ function renderCart() {
     cartList.innerHTML += `
         <div class="cart-item">
 
-            <div>
+            <div class="cart_item_description">
               <h4>${item.name}</h4>
               <p>
                 <button onclick="changeQuantity(${index}, -1)">-</button>
