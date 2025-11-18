@@ -1,5 +1,5 @@
 .cart {
-  display: none;
+  display: flex;
   flex-direction: column;
   
   width: 350px;
@@ -18,7 +18,7 @@
 
   overflow-y: hidden;
   transform: translateX(200%);
-  transition: transform 0.15s ease;
+  transition: transform 0.3s ease;
   z-index: 1;
 }
 

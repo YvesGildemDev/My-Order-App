@@ -7,30 +7,24 @@
     display: none;
   }
 
-  .menu {
-    transition: transform 0.3 ease;
-    transform: translateY(0%);
-  }
-
-  .main_menu_content {
-    flex-direction: column;
+  .responsive_cart_button {
+    display: flex;
   }
 
   .menu.shifted {
     display: none;
   }
-
-  .responsive_cart_button {
-    display: flex;
-  }
-
   .cart {
     width: 100% !important;
     min-height: 100vh !important;
+    transform: translateX(0%) !important;
+    transform: translateY(200%) !important;
   }
 
   .cart.active {
     opacity: 1;
+    transform: translateY(0%) !important;
+
   }
 
   .cart.hidden {
@@ -42,7 +36,7 @@
   .menu_group_selection {
     flex-direction: column;
   }
-  
+
   .menu_tab_text {
     padding: 12px 16px;
     gap: 6px !important;

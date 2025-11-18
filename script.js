@@ -28,7 +28,6 @@ function toggleCart() {
 
     setTimeout(() => {
       cart.classList.remove("active");
-      cart.style.display = `none`
   }, 10)
   }
 }

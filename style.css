@@ -5,7 +5,7 @@
 }
 
 body {
-  height: 100vh;
+  max-height: 100vh;
   background-color: #fafafa;
   overflow-x: hidden;
   overflow-y: auto;
@@ -90,6 +90,7 @@ header span {
   top: 0px;
   left: 0px;
   position: relative;
+  overflow-y: hidden;
 }
 
 .main_menu_content {

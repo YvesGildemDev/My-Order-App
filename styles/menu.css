@@ -1,11 +1,11 @@
 .menu {
   width: 100%;
   max-width: 1920px;
+  transition: width 300ms ease;
 }
 
 .menu.shifted {
   width: 100%;
-  transition: width 10ms ease;
 }
 
 .menu_title {
@@ -73,7 +73,7 @@
 }
 
 .menu_list {
-  width: 100vw;
+  width: 100%;
   padding: 16px;
 }
 
