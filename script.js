@@ -1,3 +1,13 @@
+function updateTabIndicator() {
+  let activeTab = document.querySelector(".menu_tab.active");
+  let indicator = document.getElementById(`tab-indicator`);
+
+  if (!activeTab || !indicator) return;
+
+  indicator.style.width = activeTab.offsetWidth + "px";
+  indicator.style.left = activeTab.offsetLeft + "px";
+}
+
 function toggleCart() {
   let cart = document.getElementById("cart");
   let menu = document.querySelector(".menu");
@@ -16,8 +26,9 @@ function toggleCart() {
 }
 
 function addToCart(index) {
-  let dish = MAINDISHES[index];
-  let existingItem = cart.find((item) => item.name === dish.name);
+  let dish = menuGroup[index];
+
+  let existingItem = cart.find(item => item.name === dish.name);
 
   if (existingItem) {
     existingItem.quantity++;

@@ -15,7 +15,7 @@
 
   </head>
 
-  <body onload="renderMenu()">
+  <body onload="initMenuStart()">
 
     <header>
 
@@ -44,10 +44,12 @@
         <div class="menu_group_selection">
 
           <img src="">
-          <span id="menu-tab-starter" onclick="loadMenuGroup('starter')" class="menu_tab active">Vorspeisen</span>
-          <span id="menu-tab-maindishes" onclick="loadMenuGroup('maindishes')" class="menu_tab">Hauptgerichte</span>
-          <span id="menu-tab-desserts" onclick="loadMenuGroup('desserts')" class="menu_tab">Desserts</span>
-
+          <div class="menu_tab_text">
+            <div id="tab-indicator" class="tab_indicator"></div>
+            <span id="menu-tab-starter" onclick="loadMenuGroup('starter')" class="menu_tab active">Vorspeisen</span>
+            <span id="menu-tab-maindishes" onclick="loadMenuGroup('maindishes')" class="menu_tab">Hauptgerichte</span>
+            <span id="menu-tab-desserts" onclick="loadMenuGroup('desserts')" class="menu_tab">Desserts</span>
+          </div>
         </div>
 
         <section id="menu-list" class="menu_list"></section>

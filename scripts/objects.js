@@ -111,4 +111,6 @@ const DESSERTS = [
   },
 ];
 
+let menuGroup = [];
+
 let cart = [];
