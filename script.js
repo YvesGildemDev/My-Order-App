@@ -14,17 +14,22 @@ function toggleCart() {
 const cartEl = document.getElementById("cart");
 const body = document.body;
 const open = body.classList.contains("cart-open");
+let menu = document.getElementById(`menu`);
 
 
 if (!open) {
 body.classList.add("cart-open");
 cartEl.classList.add("active");
 cartEl.classList.remove("hidden");
+cartEl.style.opacity = 1;
+menu.classList.add("shifted");
 } else {
 cartEl.classList.remove("active");
+menu.classList.remove("shifted")
 const onEnd = () => {
 body.classList.remove("cart-open");
 cartEl.classList.add("hidden");
+cartEl.style.opacity = 0;
 cartEl.removeEventListener("transitionend", onEnd);
 };
 cartEl.addEventListener("transitionend", onEnd);

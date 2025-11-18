@@ -29,15 +29,23 @@ body {
 
 header {
   display: flex;
-  align-items: center;
-
+  justify-content: center;
   width: 100%;
-  max-height: 164px;
-  padding: 16px 16px;
-
-  color: white;
   background-color: #ff8000;
   z-index: 100;
+  position: relative;
+  color: white;
+  max-height: 164px;
+  padding: 16px 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1920px;
+  padding-right: 24px;
 }
 
 header img {
@@ -52,9 +60,6 @@ header img {
 
   width: 48px;
   height: 34px;
-  position: absolute;
-  top: 28px;
-  right: 28px;
   background-color: rgba(255, 255, 255, 0);
   border: none;
   cursor: pointer;
@@ -79,24 +84,11 @@ header span {
   background-color: white;
 }
 
-.main {
+main {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
+  justify-content: center;
   width: 100%;
-  min-height: calc(100% - 152px);
-  top: 0px;
-  left: 0px;
-  position: relative;
-  overflow-y: hidden;
-}
-
-.main_menu_content {
-  display: flex;
-  width: 100vw;
-  max-width: 1920px;
+  min-height: calc(100vh - 152px);
 }
 
 footer {

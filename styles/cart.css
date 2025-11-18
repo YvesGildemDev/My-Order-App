@@ -8,28 +8,24 @@
   gap: 12px;
 
   position: sticky;
-  top: 0px;
-  left: 0px;
-
+  top: 86px;
   opacity: 0;
   background-color: white;
   border-left: 1px solid #ddd;
   box-shadow: 0px 5px 15px 3px #00000040;
 
   overflow-y: hidden;
-  transform: translateX(200%);
   transition: transform 0.3s ease;
+  transform: translateX(100%);
   z-index: 1;
 }
 
 .cart.active {
-  opacity: 1;
   transform: translateX(0%);
 }
 
 .cart.hidden {
-  opacity: 0;
-  transform: translateX(200%);
+  transform: translateX(100%);
 }
 
 .cart_list {

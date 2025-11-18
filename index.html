@@ -19,45 +19,44 @@
   <body onload="initMenuStart()">
 
     <header>
-
-      <img src="#">
-      <button onclick="toggleCart()" class="hamburger_button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      <section class="header">
+        <img src="#">
+        <button onclick="toggleCart()" class="hamburger_button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </section>
 
     </header>
+    
+    <main>
+      <div id="menu" class="menu">
 
-    <main class="main">
-      <div class="main_menu_content">
-        <div class="menu">
+        <section class="menu_title">
 
-          <section class="menu_title">
+          <img class="menu_title_background_img" src="#">
+          <img class="menu_title_logo_img" src="#">
+          <h1>Paradise Noodles</h1>
+          <p class="text_color">Bewertung (4.2 von 5 Sternen)</p>
 
-            <img class="menu_title_background_img" src="#">
-            <img class="menu_title_logo_img" src="#">
-            <h1>Paradise Noodles</h1>
-            <p class="text_color">Bewertung (4.2 von 5 Sternen)</p>
-
-          </section>
+        </section>
         
-          <div class="menu_group_selection">
+        <div class="menu_group_selection">
 
-            <img src="">
-            <div class="menu_tab_text">
-              <div id="tab-indicator" class="tab_indicator"></div>
-              <span id="menu-tab-starter" onclick="loadMenuGroup('starter')" class="menu_tab active">Vorspeisen</span>
-              <span id="menu-tab-maindishes" onclick="loadMenuGroup('maindishes')" class="menu_tab">Hauptgerichte</span>
-              <span id="menu-tab-desserts" onclick="loadMenuGroup('desserts')" class="menu_tab">Desserts</span>
-            </div>
+          <img src="">
+          <div class="menu_tab_text">
+            <div id="tab-indicator" class="tab_indicator"></div>
+            <span id="menu-tab-starter" onclick="loadMenuGroup('starter')" class="menu_tab active">Vorspeisen</span>
+            <span id="menu-tab-maindishes" onclick="loadMenuGroup('maindishes')" class="menu_tab">Hauptgerichte</span>
+            <span id="menu-tab-desserts" onclick="loadMenuGroup('desserts')" class="menu_tab">Desserts</span>
           </div>
-
-          <section id="menu-list" class="menu_list"></section>
         </div>
-      
-      <!---------- cardboard area ---------->
-        <aside id="cart" class="cart hidden">
+
+        <section id="menu-list" class="menu_list"></section>
+      </div>
+
+      <aside id="cart" class="cart hidden">
 
           <h2>Warenkorb</h2>
           <div id="cart-list" class="cart_list"></div>
@@ -70,13 +69,14 @@
             <button onclick="openCartDialog()" class="button_style_two">Bestellen</button>
           </div>
 
-        </aside>
-      </div>
+      </aside>
+
       <dialog id="cart-dialog" class="cart_dialog"></dialog>
 
     </main>
-    
+
     <button id="responsive-card-button" onclick="toggleCart()" class="button_style_two responsive_cart_button ">Warenkorb</button>
+    
     <footer></footer>
 
     
