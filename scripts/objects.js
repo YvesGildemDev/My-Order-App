@@ -1,10 +1,4 @@
 // <-------------------- CONSTANT OBJECTSLISTS / ARRAYS --------------------> //
-const MENU_IMAGES = {
-  starter : "",
-  maindishes : "",
-  desserts : "",
-}
-
 const STARTERS = [
   {
     name: "Frischer Gartensalat",
@@ -123,6 +117,19 @@ const DESSERTS = [
     description: "Knusprige Karamellkruste auf samtiger Vanillecreme.",
   },
 ];
+
+const MENU_IMAGES = {
+  starter : "../assets/img/starter.jpg",
+  maindishes : "../assets/img/maindish.jpg",
+  desserts : "../assets/img/dessert.jpg",
+}
+
+const MENU_TITLES = {
+  starter: "Vorspeisen",
+  maindishes: "Hauptgerichte",
+  desserts: "Desserts",
+};
+
 
 // <-------------------- Changeable Objectlists / Arrays --------------------> //
 let menuGroup = [];

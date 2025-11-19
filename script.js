@@ -27,6 +27,7 @@ function loadCurrentMenuTab(currentTab) {
 
   currentMenuTab(currentTab);
   renderMenuList(currentMenuGroup);
+  renderCart();
 }
 
 function initEventListeners() {

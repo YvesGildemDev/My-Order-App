@@ -3,7 +3,8 @@
 function renderMenuList(currentMenuGroup) {
   let menuListRef = document.getElementById("menu-list");
   let currentMenuGroupImage = MENU_IMAGES[currentMenuGroup] || "";
-  let menuList = `<img src="${currentMenuGroupImage}"><h3>Hauptgerichte</h3>`;
+  let currentMenuTitle = MENU_TITLES[currentMenuGroup] || "";
+  let menuList = `<img src="${currentMenuGroupImage}"><h3>${currentMenuTitle}</h3>`;
 
   menuGroup.forEach((menu, menuIndex) => {
     menuList += `
@@ -18,7 +19,7 @@ function renderMenuList(currentMenuGroup) {
   });
 
   menuListRef.innerHTML = menuList;
-  
+
   addToCartEvent();
 }
 
@@ -28,11 +29,6 @@ function renderCart() {
   let cartListItem = "";
   let subtotal = 0;
 
-  if (cart.length === 0) {
-    cartListRef.innerHTML = "";
-    calculateEndPrice();
-    return;
-  }
   cart.forEach((currentItem, quantity) => {
     let fullItemPrice = currentItem.quantity * currentItem.price;
     subtotal += fullItemPrice;
@@ -50,6 +46,10 @@ function renderCart() {
         </div>
       </div>`;
   });
+  
+  if (subtotal === 0) {
+    cartListItem = `<span>Der Warenkorb ist leer</span>`;
+  }
 
   cartListRef.innerHTML = cartListItem;
 

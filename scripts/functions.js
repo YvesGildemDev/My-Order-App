@@ -67,6 +67,8 @@ function calculateEndPrice(subtotal) {
   let shippingRef = document.getElementById("shipping");
   let totalPrice = document.getElementById("total");
 
+  subtotal = subtotal || 0;
+  
   if (cart.length > 0) {
     let shipping = cart.length > 0 ? 5 : 0;
 
