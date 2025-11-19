@@ -5,71 +5,74 @@ function currentMenuTab(currentTab) {
   allMenuTabs.forEach((allTabs) => allTabs.classList.remove("active"));
   currentMenuTab.classList.add("active");
 
-  updateTabIndicator();
+  updateTabIndicatorBar();
 }
 
-function updateTabIndicator() {
+function updateTabIndicatorBar() {
   let activeTab = document.querySelector(".menu_tab.active");
-  let indicator = document.getElementById("tab-indicator");
+  let indicatorBar = document.getElementById("tab-indicator");
 
-  if (!activeTab || !indicator) return;
+  if (!activeTab || !indicatorBar) return;
 
-  indicator.style.width = activeTab.offsetWidth + "px";
-  indicator.style.left = activeTab.offsetLeft + "px";
+  indicatorBar.style.width = activeTab.offsetWidth + "px";
+  indicatorBar.style.left = activeTab.offsetLeft + "px";
 }
 
 // <----- Cart -----> //
 function toggleCart() {
-  let cartContainer = document.getElementById("cart");
-  let cartOpen = cartContainer.classList.contains("active");
-  let menu = document.getElementById(`menu`);
+  let cartRef = document.getElementById("cart");
+  let activeCart = cartRef.classList.contains("active");
+  let menuRef = document.getElementById(`menu`);
 
-  if (!cartOpen) {
-    cartContainer.classList.add("active");
-    cartContainer.classList.remove("hidden");
-    menu.classList.add("shifted");
+  if (!activeCart) {
+    cartRef.classList.add("active");
+    cartRef.classList.remove("hidden");
+    menuRef.classList.add("shifted");
   } else {
-    cartContainer.classList.remove("active");
-    menu.classList.remove("shifted");
+    cartRef.classList.remove("active");
+    menuRef.classList.remove("shifted");
 
     cartTransitionEnd();
-    cartContainer.addEventListener("transitionend", cartTransitionEnd);
+    cartRef.addEventListener("transitionend", cartTransitionEnd);
   }
 
   function cartTransitionEnd() {
-    cartContainer.classList.add("hidden");
-    cartContainer.removeEventListener("transitionend", cartTransitionEnd);
+    cartRef.classList.add("hidden");
+    cartRef.removeEventListener("transitionend", cartTransitionEnd);
   }
 }
 
 // <-------------------- Specific Functions --------------------> //
 // <----- Cart -----> //
-function addToCart(i) {
-  let dish = menuGroup[i];
+function addToCart(currentMenu) {
+  let menuToAdd = menuGroup[currentMenu];
 
-  if (!dish) return;
+  if (!menuToAdd) return;
 
-  let meal = cart.find((index) => index.name === dish.name);
+  let cartMenuQuantity = cart.find((index) => index.name === menuToAdd.name);
 
-  if (meal) meal.quantity++;
-  else cart.push({ ...dish, quantity: 1 });
+  if (cartMenuQuantity) cartMenuQuantity.quantity++;
+  else cart.push({ ...menuToAdd, quantity: 1 });
   renderCart();
 }
 
-function changeQuantity(index, input) {
-  cart[index].quantity += input;
-  if (cart[index].quantity <= 0) cart.splice(index, 1);
+function changeQuantity(menuInCart, currentMenu) {
+  cart[menuInCart].quantity += currentMenu;
+  if (cart[menuInCart].quantity <= 0) cart.splice(menuInCart, 1);
   renderCart();
 }
 
 function calculateEndPrice(subtotal) {
+  let subtotalRef = document.getElementById("subtotal");
+  let shippingRef = document.getElementById("shipping");
+  let totalPrice = document.getElementById("total");
+
   if (cart.length > 0) {
     let shipping = cart.length > 0 ? 5 : 0;
 
-    document.getElementById("subtotal").innerText = subtotal.toFixed(2) + "€";
-    document.getElementById("shipping").innerText = shipping.toFixed(2) + "€";
-    document.getElementById("total").innerText =
-      (subtotal + shipping).toFixed(2) + "€";
+    subtotalRef.innerText = subtotal.toFixed(2) + "€";
+    shippingRef.innerText = shipping.toFixed(2) + "€";
+    totalPrice.innerText = (subtotal + shipping).toFixed(2) + "€";
   }
 }
 
@@ -80,23 +83,23 @@ function deleteCartItem(currentItem) {
 
 function openCartDialog() {
   if (cart.length > 0) {
-    let cartDialog = document.getElementById(`cart-dialog`);
+    let cartDialogRef = document.getElementById(`cart-dialog`);
 
     renderCartDialog();
 
-    cartDialog.showModal();
-    cartDialog.classList.add("active");
-    cartDialog.style.display = `flex`;
+    cartDialogRef.showModal();
+    cartDialogRef.classList.add("active");
+    cartDialogRef.style.display = `flex`;
   } else {
     return;
   }
 }
 
 function closeCartDialog() {
-  let cartDialog = document.getElementById(`cart-dialog`);
+  let cartDialogRef = document.getElementById(`cart-dialog`);
 
-  cartDialog.close();
-  cartDialog.style.display = `none`;
+  cartDialogRef.close();
+  cartDialogRef.style.display = `none`;
 
   cart = [];
 

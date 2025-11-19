@@ -2,15 +2,16 @@
 // <----- Init Function -----> //
 function initMenuStart() {
   loadCurrentMenuTab(`starter`);
+  initEventListeners()
 }
 
-window.addEventListener("load", updateTabIndicator);
-window.addEventListener("resize", updateTabIndicator);
+window.addEventListener("load", updateTabIndicatorBar);
+window.addEventListener("resize", updateTabIndicatorBar);
 
 // <----- Menu -----> //
 function loadCurrentMenuTab(currentTab) {
-  let menuListRef = document.getElementById("menu-list");
-  menuListRef.innerHTML = `<img src=""><h3>Hauptgerichte</h3>`;
+  let currentMenuGroup = "starter";
+  currentMenuGroup = currentTab;
 
   switch (currentTab) {
     case "starter":
@@ -25,6 +26,11 @@ function loadCurrentMenuTab(currentTab) {
   }
 
   currentMenuTab(currentTab);
+  renderMenuList(currentMenuGroup);
+}
+
+function initEventListeners() {
+  responsiveCartButtonEvent();
   menuTabEvent();
-  renderMenuList();
+  cartDialogKeyFunc()
 }

@@ -1,41 +1,46 @@
 // <-------------------- Basic Render Templates --------------------> //
 // <----- Menu -----> //
-function renderMenuList() {
+function renderMenuList(currentMenuGroup) {
   let menuListRef = document.getElementById("menu-list");
-  let html = "";
-  menuGroup.forEach((dish, index) => {
-    html += `
+  let currentMenuGroupImage = MENU_IMAGES[currentMenuGroup] || "";
+  let menuList = `<img src="${currentMenuGroupImage}"><h3>Hauptgerichte</h3>`;
+
+  menuGroup.forEach((menu, menuIndex) => {
+    menuList += `
       <div class="menu_item">
         <div class="menu_item_text">
-          <h4>${dish.name}</h4>
-          <p>${dish.description}</p>
-          <span>${dish.price.toFixed(2)}€</span>
+          <h4>${menu.name}</h4>
+          <p>${menu.description}</p>
+          <span>${menu.price.toFixed(2)}€</span>
         </div>
-        <div class="menu_item_button" data-index="${index}">+</div>
+        <div class="menu_item_button" data-index="${menuIndex}">+</div>
       </div>`;
   });
-  menuListRef.innerHTML = html;
+
+  menuListRef.innerHTML = menuList;
+  
+  addToCartEvent();
 }
 
 // <----- Cart -----> //
 function renderCart() {
   let cartListRef = document.getElementById("cart-list");
-  let listHtml = "";
+  let cartListItem = "";
   let subtotal = 0;
 
   if (cart.length === 0) {
     cartListRef.innerHTML = "";
-    calculateEndPrice();   // optional → setzt Preis auf 0
+    calculateEndPrice();
     return;
   }
   cart.forEach((currentItem, quantity) => {
-    let quantityPrice = currentItem.quantity * currentItem.price;
-    subtotal += quantity;
-    listHtml += `
+    let fullItemPrice = currentItem.quantity * currentItem.price;
+    subtotal += fullItemPrice;
+    cartListItem += `
       <div class="cart-item">
         <div class="cart_item_description">
           <strong>${currentItem.name}</strong>
-          <span>${quantityPrice.toFixed(2)}€</span>
+          <span>${fullItemPrice.toFixed(2)}€</span>
         </div>
         <div class="trash_nh_price">
           <button onclick="changeQuantity(${quantity}, -1)">-</button>
@@ -46,19 +51,11 @@ function renderCart() {
       </div>`;
   });
 
-  cartListRef.innerHTML = listHtml;
-  let cartTrashButton = document.querySelectorAll(".cart_trash_button");
-    cartTrashButton.forEach((trashButton) => {
-      trashButton.addEventListener("click", () => {
-        let currentItem = trashButton.dataset.index;
-        deleteCartItem(currentItem);
-      })
-  });
+  cartListRef.innerHTML = cartListItem;
+
+  trashButtonEvent();
   calculateEndPrice(subtotal);
-
-};
-
- 
+}
 
 function renderCartDialog() {
   let cartDialogRef = document.getElementById(`cart-dialog`);

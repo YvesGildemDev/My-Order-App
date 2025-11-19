@@ -1,4 +1,10 @@
 // <-------------------- CONSTANT OBJECTSLISTS / ARRAYS --------------------> //
+const MENU_IMAGES = {
+  starter : "",
+  maindishes : "",
+  desserts : "",
+}
+
 const STARTERS = [
   {
     name: "Frischer Gartensalat",
