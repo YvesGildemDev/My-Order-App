@@ -1,6 +1,15 @@
 // <-------------------- Basic Listener --------------------> //
 
 // <-------------------- Button Listener --------------------> //
+function menuTabEvent() {
+  document.querySelectorAll(".menu_tab").forEach((everyTab) => {
+    everyTab.addEventListener("click", () => {
+      let currentTab = everyTab.id.replace("menu-tab-", "");
+      loadCurrentMenuTab(currentTab);
+    });
+  });
+}
+
 document.addEventListener("click", (buttonIndex) => {
   if (buttonIndex.target.classList.contains("menu_item_button"))
     addToCart(parseInt(buttonIndex.target.dataset.index));

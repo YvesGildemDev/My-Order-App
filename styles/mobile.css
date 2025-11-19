@@ -17,34 +17,33 @@
   }
 
   .menu.shifted {
-    margin-right: 0 !important;
-    width: 100% !important;
+    margin-right: 0;
+    width: 100%;
   }
 
   .cart {
-    position: fixed !important;
+    position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 100% !important;
-    height: 100vh !important;
+    width: 100%;
+    height: 100vh;
     background: white;
-    z-index: 1000;
 
-    display: flex !important;
+    display: flex;
     flex-direction: column;
 
-    transform: translateX(0%) !important;
-    transform: translateY(100%) !important;
+    transform: translateX(0%);
+    transform: translateY(100%);
     transition: transform 0.3s ease;
   }
 
   .cart.active {
-    transform: translateY(0%) !important;
+    transform: translateY(0%);
   }
 
   .cart.hidden {
-    transform: translateX(0%) !important;
-    transform: translateY(100%) !important;
+    transform: translateX(0%);
+    transform: translateY(100%);
   }
 }
 
@@ -55,11 +54,20 @@
 
   .menu_tab_text {
     padding: 12px 16px;
-    gap: 6px !important;
+    gap: 6px;
     font-size: 14px;
   }
 
   .tab_indicator {
-    top: 36px !important;
+    top: 36px;
   }
+}
+
+@media (min-width: 2280px) {
+  .menu {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
 }
