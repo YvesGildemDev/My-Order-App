@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 12px;
+  height: 70vh;
   overflow-y: auto;
 }
 
@@ -74,6 +74,17 @@
   gap: 12px;
   border-top: 1px solid #ddd;
   padding-top: 8px;
+}
+
+.trash_btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.trash_btn:hover {
+  opacity: 0.7;
 }
 
 .trash_nh_price {

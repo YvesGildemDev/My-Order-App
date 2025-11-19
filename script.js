@@ -1,3 +1,42 @@
+// <-------------------- Basic Functions --------------------> //
+// <----- Init Function -----> //
+function initMenuStart() {
+  loadMenuContent(`starter`);
+}
+
+window.addEventListener("load", updateTabIndicator);
+window.addEventListener("resize", updateTabIndicator);
+
+// <----- Menu -----> //
+function loadMenuContent(currentTab) {
+  let menuList = document.getElementById("menu-list");
+  menuList.innerHTML = `<img src=""><h3>Hauptgerichte</h3>`;
+
+  switch (currentTab) {
+    case "starter":
+      menuGroup = STARTERS;
+      break;
+    case "maindishes":
+      menuGroup = MAINDISHES;
+      break;
+    case "desserts":
+      menuGroup = DESSERTS;
+      break;
+  }
+
+  currentMenuTab(currentTab);
+  updateTabIndicator();
+  renderMenuList();
+}
+
+function currentMenuTab(currentTab) {
+  let allMenuTabs = document.querySelectorAll(".menu_tab");
+  let currentMenuTab = document.getElementById(`menu-tab-${currentTab}`);
+
+  allMenuTabs.forEach((allTabs) => allTabs.classList.remove("active"));
+  currentMenuTab.classList.add("active");
+}
+
 function updateTabIndicator() {
   let activeTab = document.querySelector(".menu_tab.active");
   let indicator = document.getElementById("tab-indicator");
@@ -8,9 +47,7 @@ function updateTabIndicator() {
   indicator.style.left = activeTab.offsetLeft + "px";
 }
 
-window.addEventListener("load", updateTabIndicator);
-window.addEventListener("resize", updateTabIndicator);
-
+// <----- Cart -----> //
 function toggleCart() {
   let cartContainer = document.getElementById("cart");
   let cartOpen = cartContainer.classList.contains("active");
@@ -19,44 +56,55 @@ function toggleCart() {
   if (!cartOpen) {
     cartContainer.classList.add("active");
     cartContainer.classList.remove("hidden");
-
     menu.classList.add("shifted");
   } else {
     cartContainer.classList.remove("active");
     menu.classList.remove("shifted");
-
-    const onEnd = () => {
-      body.classList.remove("cart-open");
-
-      cartContainer.classList.add("hidden");
-      cartContainer.removeEventListener("transitionend", onEnd);
-    };
-
-    cartContainer.addEventListener("transitionend", onEnd);
+    
+    cartTransitionEnd();
+    cartContainer.addEventListener("transitionend", cartTransitionEnd);
   }
+
+  function cartTransitionEnd() {
+    cartContainer.classList.add("hidden");
+    cartContainer.removeEventListener("transitionend", cartTransitionEnd);
+  }
+
 }
 
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("menu_item_button"))
-    addToCart(parseInt(e.target.dataset.index));
-});
-
+// <-------------------- Specific Functions --------------------> //
+// <----- Cart -----> //
 function addToCart(i) {
   let dish = menuGroup[i];
-  
+
   if (!dish) return;
-  
+
   let meal = cart.find((index) => index.name === dish.name);
-  
+
   if (meal) meal.quantity++;
   else cart.push({ ...dish, quantity: 1 });
-    renderCart();
+  renderCart();
 }
 
 function changeQuantity(index, input) {
   cart[index].quantity += input;
   if (cart[index].quantity <= 0) cart.splice(index, 1);
-    renderCart();
+  renderCart();
+}
+
+function calculateEndPrice(subtotal) {
+  if (cart.length > 0) {
+  let shipping = cart.length > 0 ? 5 : 0;
+
+  document.getElementById("subtotal").innerText = subtotal.toFixed(2) + "€";
+  document.getElementById("shipping").innerText = shipping.toFixed(2) + "€";
+  document.getElementById("total").innerText =
+    (subtotal + shipping).toFixed(2) + "€";}
+}
+
+function deleteCartItem(currentItem) {
+  cart.splice(currentItem, 1)
+  renderCart();
 }
 
 function openCartDialog() {
@@ -77,10 +125,3 @@ function closeCartDialog() {
 
   renderCartDialog();
 }
-
-let cartDialog = document.getElementById(`cart-dialog`);
-document.addEventListener("keydown", function (e) {
-  if (cartDialog.classList.contains("active")) {
-    if (e.key === "Escape") closeCartDialog();
-  }
-});

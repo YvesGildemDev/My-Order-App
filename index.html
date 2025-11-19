@@ -40,19 +40,19 @@
             <div id="tab-indicator" class="tab_indicator"></div>
             <span
               id="menu-tab-starter"
-              onclick="loadMenuGroup('starter')"
+              onclick="loadMenuContent('starter')"
               class="menu_tab active"
               >Vorspeisen</span
             >
             <span
               id="menu-tab-maindishes"
-              onclick="loadMenuGroup('maindishes')"
+              onclick="loadMenuContent('maindishes')"
               class="menu_tab"
               >Hauptgerichte</span
             >
             <span
               id="menu-tab-desserts"
-              onclick="loadMenuGroup('desserts')"
+              onclick="loadMenuContent('desserts')"
               class="menu_tab"
               >Desserts</span
             >
@@ -81,8 +81,7 @@
     </main>
 
     <button
-      id="responsive-card-button"
-      onclick="toggleCart()"
+      id="responsive-cart-button"
       class="button_style_two responsive_cart_button"
     >
       Warenkorb
@@ -95,5 +94,8 @@
 
   <script src="./scripts/objects.js"></script>
   <script src="./scripts/templates.js"></script>
+  <script src="./scripts/eventListener.js" defer></script>
+  
   <script src="./script.js"></script>
+
 </html>

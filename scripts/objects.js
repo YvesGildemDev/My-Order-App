@@ -1,3 +1,4 @@
+// <-------------------- CONSTANT OBJECTSLISTS / ARRAYS --------------------> //
 const STARTERS = [
   {
     name: "Frischer Gartensalat",
@@ -117,6 +118,7 @@ const DESSERTS = [
   },
 ];
 
+// <-------------------- Changeable Objectlists / Arrays --------------------> //
 let menuGroup = [];
 
 let cart = [];

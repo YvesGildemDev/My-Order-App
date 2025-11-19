@@ -44,7 +44,7 @@
 
   .cart.hidden {
     transform: translateX(0%) !important;
-    transform: translateY(100%);
+    transform: translateY(100%) !important;
   }
 }
 

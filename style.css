@@ -70,7 +70,7 @@ header section {
   height: 56px;
   font-size: 24px;
   position: sticky;
-  z-index: 2;
+  z-index: 99;
   bottom: 0px;
   border: 2px solid #e9e8e3;
 }
@@ -94,4 +94,5 @@ footer {
   background-color: #f57c00;
   width: 100%;
   height: 60px;
+  z-index: 100;
 }
