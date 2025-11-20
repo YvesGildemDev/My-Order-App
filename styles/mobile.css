@@ -18,6 +18,7 @@
   }
 
   .menu.shifted {
+    display: none;
     margin-right: 0;
     width: 100%;
   }
@@ -27,7 +28,7 @@
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: 100vh;
+    height: calc(100% - 54px);
     background: white;
 
     display: flex;
@@ -35,7 +36,7 @@
 
     z-index: 101;
     transform: translateX(0%);
-    transform: translateY(100%);
+    transform: translateY(150%);
     transition: transform 0.3s ease;
   }
 
@@ -45,8 +46,9 @@
 
   .cart.hidden {
     transform: translateX(0%);
-    transform: translateY(100%);
+    transform: translateY(150%);
   }
+
 }
 
 @media (max-width: 600px) {
@@ -55,6 +57,7 @@
   }
 }
 @media (max-width: 380px) {
+
   .menu_group_selection {
     flex-direction: column;
   }
@@ -70,7 +73,7 @@
   }
 }
 
-@media (min-width: 2280px) {
+@media (min-width: 2600px) {
   .menu {
     position: relative;
     left: 50%;

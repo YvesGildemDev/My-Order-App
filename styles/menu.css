@@ -76,6 +76,7 @@
 }
 
 .menu_list {
+  width: 100%;
   padding: 16px;
 }
 
@@ -120,6 +121,8 @@
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   width: 36px;
   height: 36px;
 
@@ -134,5 +137,6 @@
 }
 
 .menu_item_button:hover {
-  background-color: #ff9800;
+  color: white;
+  background-color: #ff8000;
 }

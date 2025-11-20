@@ -3,6 +3,7 @@ function basicEvents() {
   hamburgerButtonEvent();
   responsiveCartButtonEvent();
   menuTabEvent();
+  addToCartEvent()
 }
 
 function cartEvents() {

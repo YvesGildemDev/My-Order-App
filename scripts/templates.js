@@ -20,7 +20,6 @@ function renderMenuList(currentMenuGroup) {
 
   menuListRef.innerHTML = menuList;
 
-  addToCartEvent();
 }
 
 // <----- Cart -----> //
