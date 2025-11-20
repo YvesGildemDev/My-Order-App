@@ -17,8 +17,8 @@
   <body onload="initMenuStart()">
     <header>
       <section class="content_cut">
-        <img src="./assets/img/logo.png" />
-        <button onclick="toggleCart()" class="hamburger_button">
+        <img src="./assets/img/logo.png" alt="Unser Logo, bestehend aus dem weißen Schriftzug BestellApp, davon sind beide LL als je ein Messer(links) und eine Gabel(rechts) gestaltet"/>
+        <button id="hamburger-button" class="hamburger_button" name="Hamburger Button um Navigationsleiste zu öffnen">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -29,9 +29,9 @@
     <main>
       <div id="menu" class="menu">
         <section class="menu_title content_cut">
-          <img class="menu_title_background_img" src="./assets/img/paradies-nudels.jpg" />
-          <img class="menu_title_logo_img" src="./assets/img/favicon.png" />
-          <h1>Paradise Noodles</h1>
+          <img class="menu_title_background_img" src="./assets/img/paradies-nudels.jpg" alt="saftig, frittierte Seelachsstreifen mit chinesischen Glasnudeln. Dazu Rotkraut und Blattsalat, sowie Gurken/Karottenstreifen, in einer Bowl"/>
+          <img class="menu_title_logo_img" src="./assets/img/favicon.png" alt="ein Messer und eine Gabel, beide weiß gefärbt, auf einem orangenen, Kreisförmigen Hintergrund. Das ist unser Logo"/>
+          <h1>Paradies Nudeln</h1>
           <p class="text_color">Bewertung (4.2 von 5 Sternen)</p>
         </section>
 
@@ -60,20 +60,22 @@
         <section id="menu-list" class="menu_list content_cut"></section>
       </div>
 
-      <aside id="cart" class="cart hidden">
-        <h2>Warenkorb</h2>
-        <div id="cart-list" class="cart_list"></div>
-        <div class="cart-summary">
-          <p>Zwischensumme: <span id="subtotal">0.00€</span></p>
-          <p>Lieferkosten: <span id="shipping">5.00€</span></p>
-          <p>
-            <strong>Gesamt: <span id="total">5.00€</span></strong>
-          </p>
-          <button onclick="openCartDialog()" class="button_style_two">
-            Bestellen
-          </button>
-        </div>
-      </aside>
+      <div class="cart_wrapper">
+        <aside id="cart" class="cart hidden">
+          <h2>Warenkorb</h2>
+          <div id="cart-list" class="cart_list"></div>
+          <div class="cart-summary">
+            <p>Zwischensumme: <span id="subtotal">0.00€</span></p>
+            <p>Lieferkosten: <span id="shipping">5.00€</span></p>
+            <p>
+              <strong>Gesamt: <span id="total">5.00€</span></strong>
+            </p>
+            <button id="buy-button" class="button_style_two">
+              Bestellen
+            </button>
+          </div>
+        </aside>
+      </div>
 
       <dialog id="cart-dialog" class="cart_dialog"></dialog>
     </main>

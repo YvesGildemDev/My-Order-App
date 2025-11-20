@@ -47,6 +47,11 @@
   }
 }
 
+@media (max-width: 600px) {
+  .menu_title_logo_img {
+    top: 86px;
+  }
+}
 @media (max-width: 380px) {
   .menu_group_selection {
     flex-direction: column;

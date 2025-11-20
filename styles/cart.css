@@ -1,20 +1,26 @@
+.cart_wrapper { 
+  width: 350px;
+  flex: 1;
+  
+}
+
 .cart {
   display: flex;
   flex-direction: column;
   
-  width: 350px;
+  
   padding: 16px;
   gap: 12px;
 
+  flex-grow: 1;
   position: sticky;
-  top: 86px;
+  top: 0px;
   background-color: white;
   border-left: 1px solid #ddd;
   box-shadow: 0px 5px 15px 3px #00000040;
 
-  overflow-y: hidden;
   transition: transform 0.3s ease;
-  transform: translateX(100%);
+  transform: translateX(150%);
   z-index: 2;
 }
 
@@ -23,7 +29,7 @@
 }
 
 .cart.hidden {
-  transform: translateX(100%);
+  transform: translateX(150%);
 }
 
 .cart_list {

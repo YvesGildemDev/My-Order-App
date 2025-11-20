@@ -1,4 +1,23 @@
+// <-------------------- Init --------------------> //
+function basicEvents() {
+  hamburgerButtonEvent();
+  responsiveCartButtonEvent();
+  menuTabEvent();
+}
+
+function cartEvents() {
+  buyButtonEvent();
+  cartDialogKeyFunc();
+}
+
 // <-------------------- Button Listener --------------------> //
+function hamburgerButtonEvent() {
+  let hamburgerButton = document.getElementById(`hamburger-button`);
+  hamburgerButton.addEventListener("click", () => {
+    toggleCart();
+  });
+}
+
 function responsiveCartButtonEvent() {
   let responsiveCartButton = document.getElementById(`responsive-cart-button`);
   responsiveCartButton.addEventListener("click", () => {
@@ -30,6 +49,19 @@ function trashButtonEvent() {
       deleteCartItem(currentItem);
       renderCart();
     });
+  });
+}
+function buyButtonEvent() {
+  let buyButton = document.getElementById(`buy-button`);
+  buyButton.addEventListener("click", () => {
+    openCartDialog();
+  });
+}
+
+function closeCardDialogEvent() {
+  let closeButtonRef = document.getElementById(`close-cart-dialog-button`);
+  closeButtonRef.addEventListener("click", () => {
+    closeCartDialog();
   });
 }
 

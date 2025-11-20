@@ -119,9 +119,18 @@ const DESSERTS = [
 ];
 
 const MENU_IMAGES = {
-  starter : "../assets/img/starter.jpg",
-  maindishes : "../assets/img/maindish.jpg",
-  desserts : "../assets/img/dessert.jpg",
+  starter : {
+    image: "../assets/img/starter.jpg",
+    alt: "ein frischer Gartensalat aus Tomaten- und Gurkenscheiben, Rucola- und Blattsalat, als kleines Extra ein paar kleine Brötchen aus selbstgemachtem Teig",
+  },
+  maindishes : {
+    image : "../assets/img/maindish.jpg",
+    alt : "hausgemachtes, hauchzartes Rinderfleischgulasch, verfeinert mit erlesenen Kräutern aus eigener Ernte. Gekocht mit verschiedenem Gemüse und selbstgemachter brauner Rindersoße",
+  },
+  desserts : {
+    image : "../assets/img/dessert.jpg",
+    alt : "luftiger Teigboden mit einer Schicht Vanillepudding und Sahne, übergoßen von flüssiger dunkler Schokolade und verfeinert mit Schokopuder. Als Topping ein paar Zimtsterne",
+  }
 }
 
 const MENU_TITLES = {

@@ -4,9 +4,9 @@ function renderMenuList(currentMenuGroup) {
   let menuListRef = document.getElementById("menu-list");
   let currentMenuGroupImage = MENU_IMAGES[currentMenuGroup] || "";
   let currentMenuTitle = MENU_TITLES[currentMenuGroup] || "";
-  let menuList = `<img src="${currentMenuGroupImage}"><h3>${currentMenuTitle}</h3>`;
+  let menuList = `<img src="${currentMenuGroupImage.image}" alt="${currentMenuGroupImage.alt}"><h3>${currentMenuTitle}</h3>`;
 
-  menuGroup.forEach((menu, menuIndex) => {
+  menuGroup.forEach((menu, currentMenu) => {
     menuList += `
       <div class="menu_item">
         <div class="menu_item_text">
@@ -14,7 +14,7 @@ function renderMenuList(currentMenuGroup) {
           <p>${menu.description}</p>
           <span>${menu.price.toFixed(2)}€</span>
         </div>
-        <div class="menu_item_button" data-index="${menuIndex}">+</div>
+        <div title="FÜge ${currentMenu.name} dem Warenkorb hinzu" class="menu_item_button" data-index="${currentMenu}">+</div>
       </div>`;
   });
 
@@ -39,10 +39,10 @@ function renderCart() {
           <span>${fullItemPrice.toFixed(2)}€</span>
         </div>
         <div class="trash_nh_price">
-          <button onclick="changeQuantity(${quantity}, -1)">-</button>
+          <button name="Entferne 1 mal ${currentItem.name}aus dem Warenkorb" onclick="changeQuantity(${quantity}, -1)">-</button>
           <span>${currentItem.quantity}</span>
-          <button onclick="changeQuantity(${quantity}, 1)">+</button>
-          <button class="cart_trash_button" data-index="${quantity}">🗑️</button>
+          <button name="Füge ${currentItem.name} 1 mal hinzu" onclick="changeQuantity(${quantity}, 1)">+</button>
+          <button name="${currentItem.name} aus dem Warenkorb entfernen" class="cart_trash_button" data-index="${quantity}">🗑️</button>
         </div>
       </div>`;
   });
@@ -60,7 +60,7 @@ function renderCart() {
 function renderCartDialog() {
   let cartDialogRef = document.getElementById(`cart-dialog`);
   cartDialogRef.innerHTML = `
-    <button onclick="closeCartDialog()" class="close_cart_dialog_button button_style">x</button
+    <button name="Schließe den Dialog" id="close-cart-dialog-button" class="close_cart_dialog_button button_style">x</button
     <section class="cart_dialog_header">
       <h2>Test Bestellung abgeschickt</h2>
     </section>
@@ -72,4 +72,6 @@ function renderCartDialog() {
     <section class="cart_dialog_footer">
       <button class="button_style_two">Bewerten sie uns!</button>
       </section>`;
+  
+    closeCardDialogEvent();
 }

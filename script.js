@@ -1,5 +1,3 @@
-// <-------------------- Basic Functions --------------------> //
-// <----- Init Function -----> //
 function initMenuStart() {
   loadCurrentMenuTab(`starter`);
   initEventListeners()
@@ -31,7 +29,6 @@ function loadCurrentMenuTab(currentTab) {
 }
 
 function initEventListeners() {
-  responsiveCartButtonEvent();
-  menuTabEvent();
-  cartDialogKeyFunc()
+  basicEvents()
+  cartEvents()
 }
