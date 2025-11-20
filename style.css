@@ -39,8 +39,8 @@ header {
 }
 
 header img {
-  width: 250px;
-  height: 60px;
+  width: auto;
+  height: 54px;
 }
 
 header section {
