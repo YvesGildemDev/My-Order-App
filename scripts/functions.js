@@ -20,25 +20,25 @@ function updateTabIndicatorBar() {
 
 // <----- Cart -----> //
 function toggleCart() {
-  let cartRef = document.getElementById("cart");
-  let activeCart = cartRef.classList.contains("active");
+  let cartWrapperRef = document.getElementById(`cart-wrapper`);
+  let activeCart = cartWrapperRef.classList.contains("active");
   let menuRef = document.getElementById(`menu`);
 
   if (!activeCart) {
-    cartRef.classList.add("active");
-    cartRef.classList.remove("hidden");
+    cartWrapperRef.classList.add("active");
+    cartWrapperRef.classList.remove("hidden");
     menuRef.classList.add("shifted");
   } else {
-    cartRef.classList.remove("active");
+    cartWrapperRef.classList.remove("active");
     menuRef.classList.remove("shifted");
 
     cartTransitionEnd();
-    cartRef.addEventListener("transitionend", cartTransitionEnd);
+    cartWrapperRef.addEventListener("transitionend", cartTransitionEnd);
   }
 
   function cartTransitionEnd() {
-    cartRef.classList.add("hidden");
-    cartRef.removeEventListener("transitionend", cartTransitionEnd);
+    cartWrapperRef.classList.add("hidden");
+    cartWrapperRef.removeEventListener("transitionend", cartTransitionEnd);
   }
 }
 
