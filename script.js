@@ -1,6 +1,6 @@
 function initMenuStart() {
   loadCurrentMenuTab(`starter`);
-  initEventListeners()
+  initEventListeners();
 }
 
 window.addEventListener("load", updateTabIndicatorBar);
@@ -29,6 +29,6 @@ function loadCurrentMenuTab(currentTab) {
 }
 
 function initEventListeners() {
-  basicEvents()
-  cartEvents()
+  basicEvents();
+  cartEvents();
 }

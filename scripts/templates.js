@@ -1,59 +1,60 @@
 // <-------------------- Basic Render Templates --------------------> //
 // <----- Menu -----> //
-function renderMenuList(currentMenuGroup) {
-  let menuListRef = document.getElementById("menu-list");
-  let currentMenuGroupImage = MENU_IMAGES[currentMenuGroup] || "";
-  let currentMenuTitle = MENU_TITLES[currentMenuGroup] || "";
-  let menuList = `<img src="${currentMenuGroupImage.image}" alt="${currentMenuGroupImage.alt}"><h3>${currentMenuTitle}</h3>`;
+function loadMenuListTemplate(image, title) {
+  let menuListTemplate = `
+  <img src="${image.image}" alt="${image.alt}"><h3>${title}</h3>`;
 
   menuGroup.forEach((menu, currentMenu) => {
-    menuList += `
+    menuListTemplate += `
       <div class="menu_item">
         <div class="menu_item_text">
           <h4>${menu.name}</h4>
           <p>${menu.description}</p>
           <span>${menu.price.toFixed(2)}€</span>
         </div>
-        <div title="FÜge ${currentMenu.name} dem Warenkorb hinzu" class="menu_item_button" data-index="${currentMenu}">+</div>
+        <div title="FÜge ${
+          currentMenu.name
+        } dem Warenkorb hinzu" class="menu_item_button" data-index="${currentMenu}">+</div>
       </div>`;
   });
 
-  menuListRef.innerHTML = menuList;
-
+  return menuListTemplate;
 }
 
 // <----- Cart -----> //
-function renderCart() {
-  let cartListRef = document.getElementById("cart-list");
-  let cartListItem = "";
+function getCartTemplate(cart) {
+  let cartListTemplate = "";
   let subtotal = 0;
 
   cart.forEach((currentItem, quantity) => {
     let fullItemPrice = currentItem.quantity * currentItem.price;
     subtotal += fullItemPrice;
-    cartListItem += `
+    cartListTemplate += `
       <div class="cart-item">
         <div class="cart_item_description">
           <strong>${currentItem.name}</strong>
           <span>${fullItemPrice.toFixed(2)}€</span>
         </div>
         <div class="trash_nh_price">
-          <button name="Entferne 1 mal ${currentItem.name}aus dem Warenkorb" onclick="changeQuantity(${quantity}, -1)">-</button>
+          <button name="Entferne 1 mal ${
+            currentItem.name
+          }aus dem Warenkorb" onclick="changeQuantity(${quantity}, -1)">-</button>
           <span>${currentItem.quantity}</span>
-          <button name="Füge ${currentItem.name} 1 mal hinzu" onclick="changeQuantity(${quantity}, 1)">+</button>
-          <button name="${currentItem.name} aus dem Warenkorb entfernen" class="cart_trash_button" data-index="${quantity}">🗑️</button>
+          <button name="Füge ${
+            currentItem.name
+          } 1 mal hinzu" onclick="changeQuantity(${quantity}, 1)">+</button>
+          <button name="${
+            currentItem.name
+          } aus dem Warenkorb entfernen" class="cart_trash_button" data-index="${quantity}">🗑️</button>
         </div>
       </div>`;
   });
-  
+
   if (subtotal === 0) {
-    cartListItem = `<span>Der Warenkorb ist leer</span>`;
+    cartListTemplate = `<span>Der Warenkorb ist leer</span>`;
   }
 
-  cartListRef.innerHTML = cartListItem;
-
-  trashButtonEvent();
-  calculateEndPrice(subtotal);
+  return { cartListTemplate, subtotal };
 }
 
 function renderCartDialog() {
@@ -71,6 +72,6 @@ function renderCartDialog() {
     <section class="cart_dialog_footer">
       <button class="button_style_two">Bewerten sie uns!</button>
       </section>`;
-  
-    closeCardDialogEvent();
+
+  closeCardDialogEvent();
 }

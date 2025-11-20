@@ -1,3 +1,18 @@
+// <-------------------- Basic Functions --------------------> //
+// <----- Menu -----> //
+function renderMenuList(currentMenuGroup) {
+  let menuListRef = document.getElementById("menu-list");
+  let currentMenuGroupImage = MENU_IMAGES[currentMenuGroup] || "";
+  let currentMenuGroupTitle = MENU_TITLES[currentMenuGroup] || "";
+
+  let menuListTemplate = loadMenuListTemplate(
+    currentMenuGroupImage,
+    currentMenuGroupTitle
+  );
+
+  menuListRef.innerHTML = menuListTemplate;
+}
+
 function currentMenuTab(currentTab) {
   let allMenuTabs = document.querySelectorAll(".menu_tab");
   let currentMenuTab = document.getElementById(`menu-tab-${currentTab}`);
@@ -19,6 +34,17 @@ function updateTabIndicatorBar() {
 }
 
 // <----- Cart -----> //
+function renderCart() {
+  let cartListRef = document.getElementById("cart-list");
+
+  let { cartListTemplate, subtotal } = getCartTemplate(cart);
+
+  cartListRef.innerHTML = cartListTemplate;
+
+  trashButtonEvent();
+  calculateEndPrice(subtotal);
+}
+
 function toggleCart() {
   let cartWrapperRef = document.getElementById(`cart-wrapper`);
   let activeCart = cartWrapperRef.classList.contains("active");
