@@ -47,7 +47,6 @@ function trashButtonEvent() {
     trashButton.addEventListener("click", () => {
       let currentItem = trashButton.dataset.index;
       deleteCartItem(currentItem);
-      renderCart();
     });
   });
 }

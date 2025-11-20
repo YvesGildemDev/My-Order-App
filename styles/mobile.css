@@ -9,6 +9,7 @@
 
   .responsive_cart_button {
     display: flex;
+    z-index: 102;
   }
 
   main {
@@ -32,6 +33,7 @@
     display: flex;
     flex-direction: column;
 
+    z-index: 101;
     transform: translateX(0%);
     transform: translateY(100%);
     transition: transform 0.3s ease;
