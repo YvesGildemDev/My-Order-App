@@ -51,7 +51,7 @@ function toggleCart() {
   let activeCart = cartWrapperRef.classList.contains("active");
   let menuRef = document.getElementById(`menu`);
   let responsiveCartButtonRef = document.getElementById(`responsive-cart-button`);
-  
+  let closeResponsiveCartButtonRef = document.getElementById(`close-responsive-cart-button`);
 
   if (!activeCart) {
     cartWrapperRef.classList.add("active");
