@@ -58,6 +58,13 @@ function buyButtonEvent() {
   });
 }
 
+function closeCartButtonEvent() {
+  let closeResponsiveCartButtonRef = document.getElementById(`close-responsive-cart-button`);
+  closeResponsiveCartButtonRef.addEventListener("click", () => {
+    toggleCart()
+  })
+}
+
 function closeCardDialogEvent() {
   let closeButtonRef = document.getElementById(`close-cart-dialog-button`);
   closeButtonRef.addEventListener("click", () => {

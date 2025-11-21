@@ -12,6 +12,14 @@
     z-index: 102;
   }
 
+  .responsive_cart_button.cartActive {
+    display: none;
+  }
+
+  .close_responsive_cart_button.cartActive {
+    display: flex;
+  }
+
   main {
     flex-direction: column;
     justify-content: flex-start;
@@ -31,10 +39,9 @@
 
   .cart_wrapper {
     width: 100%;
-    height: calc(100vh - 54px);
-    z-index: 101;
+    z-index: 2;
     
-    
+    height: 100%;
     bottom: 0px;
     left: 0px;
     transform: translateX(0%);
@@ -52,6 +59,30 @@
     transform: translateX(0%);
     transform: translateY(150%);
   }
+
+  .cart {
+    padding: 16px 16px;
+    overflow: hidden;
+  }
+
+  .cart h2 {
+    z-index: 3;
+    position: sticky;
+    top: 0px;
+    Left: 0px;
+    padding: 0px 0px;
+    background-color: white;
+  }
+
+  .cart_list {
+    display: none;
+    overflow-y: auto;
+  }
+
+  .cart_list.active {
+    display: flex;
+  }
+
 
 }
 

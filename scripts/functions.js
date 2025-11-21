@@ -47,16 +47,26 @@ function renderCart() {
 
 function toggleCart() {
   let cartWrapperRef = document.getElementById(`cart-wrapper`);
+  let cartListRef = document.getElementById(`cart-list`);
   let activeCart = cartWrapperRef.classList.contains("active");
   let menuRef = document.getElementById(`menu`);
+  let responsiveCartButtonRef = document.getElementById(`responsive-cart-button`);
+  
 
   if (!activeCart) {
     cartWrapperRef.classList.add("active");
     cartWrapperRef.classList.remove("hidden");
+    cartListRef.classList.add("active");
     menuRef.classList.add("shifted");
+    responsiveCartButtonRef.classList.add("cartActive");
+    loadCloseCartButton();
+    
   } else {
     cartWrapperRef.classList.remove("active");
+    cartListRef.classList.remove("active");
     menuRef.classList.remove("shifted");
+    responsiveCartButtonRef.classList.remove("cartActive");
+    closeResponsiveCartButtonRef.classList.remove("cartActive");
 
     cartTransitionEnd();
     cartWrapperRef.addEventListener("transitionend", cartTransitionEnd);
@@ -66,6 +76,13 @@ function toggleCart() {
     cartWrapperRef.classList.add("hidden");
     cartWrapperRef.removeEventListener("transitionend", cartTransitionEnd);
   }
+}
+
+function loadCloseCartButton() {
+  let closeResponsiveCartButtonRef = document.getElementById(`close-responsive-cart-button`);
+  closeResponsiveCartButtonRef.classList.add("cartActive");
+  
+  closeCartButtonEvent();
 }
 
 // <-------------------- Specific Functions --------------------> //
@@ -137,4 +154,5 @@ function closeCartDialog() {
 
   renderCart();
   renderCartDialog();
+  toggleCart();
 }
